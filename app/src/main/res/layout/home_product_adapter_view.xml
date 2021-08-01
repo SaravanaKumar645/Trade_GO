@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.google.android.material.card.MaterialCardView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    app:cardCornerRadius="11dp"
+    android:layout_marginBottom="5dp"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:padding="4dp">
+    <RelativeLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:padding="8dp"
+        android:id="@+id/home_product_relativeLayout_adapter"
+
+        android:elevation="10dp"
+        >
+
+        <ImageView
+            android:id="@+id/home_product_image"
+            android:layout_width="wrap_content"
+            android:layout_height="150dp"
+            android:layout_centerHorizontal="true"
+            android:contentDescription="home_product_image"
+            android:background="@drawable/no_image_icon"
+            />
+        <TextView
+            android:id="@+id/home_product_name"
+            android:layout_marginStart="10dp"
+            android:layout_below="@+id/home_product_image"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="5dp"
+            android:textAlignment="center"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:hint="Product Name"
+            android:textColorHint="@color/black"
+            android:textColor="@android:color/black"
+            android:textSize="16sp"
+            android:textStyle="bold" />
+        <com.google.android.material.button.MaterialButton
+            android:layout_width="match_parent"
+            android:id="@+id/home_product_viewDetails_btn"
+            app:cornerRadius="10dp"
+            android:fontFamily="sans-serif-black"
+            android:text="    View  details"
+            app:backgroundTint="#536DFE"
+            app:rippleColor="#562979FF"
+            app:iconGravity="textEnd"
+            app:iconPadding="12dp"
+            app:icon="@drawable/ic_baseline_double_arrow_24"
+            android:textStyle="bold"
+            android:gravity="center"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/home_product_name"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="0dp"
+
+            />
+
+                <View
+
+            android:id="@+id/line_view"
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:layout_below="@id/home_product_viewDetails_btn"
+            android:background="#777777"
+
+            />
+
+    </RelativeLayout>
+
+</com.google.android.material.card.MaterialCardView>

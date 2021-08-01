@@ -1,0 +1,20 @@
+<resources>
+    <string name="app_name">Trade Go</string>
+    <string name="open_drawer">Open Navigation Drawer</string>
+    <string name="close_drawer">Close Navigation Drawer</string>
+    <string name="reset_info">Enter your registered Email address to request a token for changing the password.</string>
+    <string name="confirm_pass_info">Enter the token sent to your mail. Sometimes the mail will be received in spam folder.</string>
+
+
+    <string-array name="Category">
+
+        <item>Fashion</item>
+        <item>Electronics</item>
+        <item>Groceries</item>
+        <item>Furniture</item>
+        <item>Sports</item>
+        <item>Beauty</item>
+        <item>Others</item>
+    </string-array>
+
+</resources>

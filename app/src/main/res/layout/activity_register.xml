@@ -1,0 +1,256 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".activities.Register">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_gravity="center"
+        android:paddingStart="20dp"
+        android:paddingLeft="20dp"
+        android:paddingEnd="20dp"
+        android:paddingRight="20dp"
+        android:paddingBottom="40dp">
+
+        <RelativeLayout
+            android:id="@+id/relativeLayout_pgbar_register"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="288dp"
+            android:background="@drawable/pg_bar_backgrorund_2"
+            android:elevation="60dp"
+            android:foregroundGravity="center"
+            android:gravity="center"
+            android:padding="18dp"
+            android:visibility="invisible"
+            app:layout_constraintBottom_toBottomOf="@id/Phone_register"
+            app:layout_constraintEnd_toEndOf="@id/confirmPassword_register"
+            app:layout_constraintHorizontal_bias="0.509"
+            app:layout_constraintStart_toStartOf="@id/email_register"
+
+
+            app:layout_constraintTop_toBottomOf="@+id/email_register"
+            app:layout_constraintVertical_bias="0.0">
+
+            <ProgressBar
+                android:id="@+id/pgBar_register"
+                style="?android:attr/progressBarStyle"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:layout_centerHorizontal="true"
+                android:layout_centerVertical="true"
+                android:foregroundGravity="center"
+                android:indeterminateTint="#0099ff"
+                android:visibility="visible"
+
+                />
+
+
+        </RelativeLayout>
+
+        <TextView
+
+            android:id="@+id/textView"
+            android:layout_width="0dp"
+            android:layout_height="200dp"
+            android:layout_marginTop="150dp"
+            android:background="@drawable/auth_bg"
+            android:elevation="10dp"
+            android:gravity="center"
+            android:text="REGISTER  "
+            android:textColor="#0099FF"
+
+            android:textSize="29sp"
+            android:textStyle="bold"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.15"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <EditText
+            android:id="@+id/email_register"
+            android:layout_width="300dp"
+            android:layout_height="wrap_content"
+            android:background="@drawable/btn_bg_blue"
+            android:drawableStart="@drawable/ic_baseline_email_24"
+            android:drawableLeft="@drawable/ic_baseline_email_24"
+            android:drawablePadding="12dp"
+            android:elevation="5dp"
+            android:ems="15"
+            android:layout_marginTop="25dp"
+            android:hint="Email"
+            android:inputType="textEmailAddress"
+            android:padding="12dp"
+            app:layout_constraintEnd_toEndOf="@+id/name_register"
+            app:layout_constraintStart_toStartOf="@+id/name_register"
+            app:layout_constraintTop_toBottomOf="@+id/name_register" />
+        <EditText
+            android:id="@+id/name_register"
+            android:layout_width="300dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="40dp"
+            android:background="@drawable/btn_bg_blue"
+            android:drawableStart="@drawable/ic_baseline_person_24_filled"
+            android:drawableLeft="@drawable/ic_baseline_person_24_filled"
+            android:drawablePadding="12dp"
+            android:elevation="5dp"
+            android:ems="15"
+            android:hint="Full Name"
+            android:inputType="text"
+            android:padding="12dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.459"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/textView" />
+
+        <EditText
+            android:id="@+id/password_register"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="25dp"
+            android:background="@drawable/btn_bg_blue"
+            android:drawableStart="@drawable/ic_baseline_lock_24"
+            android:drawableLeft="@drawable/ic_baseline_lock_24"
+            android:drawablePadding="12dp"
+            android:elevation="5dp"
+            android:ems="10"
+            android:hint="Password"
+            android:inputType="textPassword"
+            android:padding="12dp"
+            app:layout_constraintEnd_toEndOf="@+id/email_register"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="@+id/email_register"
+            app:layout_constraintTop_toBottomOf="@+id/email_register" />
+
+        <EditText
+            android:id="@+id/confirmPassword_register"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="25dp"
+            android:background="@drawable/btn_bg_blue"
+            android:drawableStart="@drawable/ic_baseline_lock_24"
+            android:drawableLeft="@drawable/ic_baseline_lock_24"
+            android:drawablePadding="12dp"
+            android:elevation="5dp"
+            android:ems="10"
+            android:hint="Re-enter Password"
+            android:inputType="textPassword"
+            android:padding="12dp"
+            app:layout_constraintEnd_toEndOf="@+id/password_register"
+            app:layout_constraintStart_toStartOf="@+id/password_register"
+            app:layout_constraintTop_toBottomOf="@+id/password_register" />
+
+        <Button
+            android:id="@+id/button_register"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="30dp"
+            android:background="@drawable/btn_bg_blue"
+            android:elevation="10dp"
+            android:text="SignUp"
+            android:textAllCaps="false"
+            android:textSize="17sp"
+            app:backgroundTint="#0099FF"
+            app:layout_constraintEnd_toEndOf="@+id/Phone_register"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="@+id/Phone_register"
+            app:layout_constraintTop_toBottomOf="@+id/Phone_register" />
+
+        <EditText
+            android:id="@+id/Phone_register"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="25dp"
+            android:background="@drawable/btn_bg_blue"
+            android:drawableStart="@drawable/ic_baseline_local_phone_24"
+            android:drawableLeft="@drawable/ic_baseline_local_phone_24"
+            android:drawablePadding="12dp"
+            android:ems="10"
+            android:hint="Mobile Number"
+            android:padding="12dp"
+            android:elevation="5dp"
+            android:inputType="phone"
+            app:layout_constraintEnd_toEndOf="@+id/confirmPassword_register"
+            app:layout_constraintStart_toStartOf="@+id/confirmPassword_register"
+            app:layout_constraintTop_toBottomOf="@+id/confirmPassword_register" />
+
+        <RelativeLayout
+            android:id="@+id/relativeLayout"
+            android:layout_width="0dp"
+            android:layout_height="50dp"
+
+            android:layout_marginTop="32dp"
+            app:layout_constraintEnd_toEndOf="@+id/button_register"
+            app:layout_constraintStart_toStartOf="@+id/button_register"
+            app:layout_constraintTop_toBottomOf="@+id/button_register">
+
+            <ImageButton
+                android:id="@+id/google_btn"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:layout_marginStart="40dp"
+                android:background="@drawable/social_media_btn"
+                android:backgroundTint="@color/white"
+                android:elevation="5dp"
+                android:padding="10dp"
+                android:src="@drawable/ic_icons8_google" />
+
+            <ImageButton
+                android:id="@+id/fb_btn"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:layout_marginStart="50dp"
+                android:layout_toRightOf="@id/google_btn"
+                android:background="@drawable/social_media_btn"
+                android:backgroundTint="@color/white"
+                android:elevation="5dp"
+                android:padding="10dp"
+                android:src="@drawable/ic_icons8_facebook_f" />
+
+            <ImageButton
+                android:id="@+id/twitter_btn"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:layout_marginStart="50dp"
+                android:layout_toRightOf="@id/fb_btn"
+                android:background="@drawable/social_media_btn"
+                android:backgroundTint="@color/white"
+                android:elevation="5dp"
+
+                android:padding="10dp"
+                android:src="@drawable/ic_icons8_twitter" />
+
+        </RelativeLayout>
+
+        <Button
+            android:id="@+id/navigation_login"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+
+            android:background="@drawable/btn_bg_blue"
+            android:elevation="10dp"
+            android:text="SignIn"
+            android:textAllCaps="false"
+            android:textColor="@color/black"
+            android:textSize="17sp"
+            app:backgroundTint="#FAA0C4FF"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="@+id/relativeLayout"
+            app:layout_constraintStart_toStartOf="@+id/relativeLayout"
+            app:layout_constraintTop_toBottomOf="@+id/relativeLayout" />
+
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+
+</ScrollView>

@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:padding="20dp"
+    android:background="#6BDDE6FF"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+
+    <TextView
+        android:id="@+id/notify_cart_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_marginStart="30dp"
+        android:text="title"
+        android:textColor="@color/black"
+        android:textSize="18sp"
+        android:textStyle="bold" />
+    <TextView
+        android:layout_width="wrap_content"
+        android:text="description"
+        android:layout_marginTop="10dp"
+        android:textColor="@color/black"
+       android:layout_centerHorizontal="true"
+        android:layout_below="@id/notify_cart_title"
+        android:layout_height="wrap_content"
+        android:id="@+id/notify_cart_desc"
+        />
+
+    <TextView
+        android:id="@+id/notify_cart_view_btn"
+        android:layout_width="100dp"
+        android:layout_height="30dp"
+        android:textColor="@color/white"
+        android:layout_below="@id/notify_cart_desc"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="20dp"
+        android:background="@drawable/social_media_btn"
+        android:backgroundTint="#0099ff"
+        android:clickable="true"
+        android:soundEffectsEnabled="true"
+        android:contextClickable="true"
+        android:focusable="true"
+        android:gravity="center"
+        android:text="Tap to View"
+        android:textAlignment="center"
+
+
+        android:textStyle="bold" />
+</RelativeLayout>

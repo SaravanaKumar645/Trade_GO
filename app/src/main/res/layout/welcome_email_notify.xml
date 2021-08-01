@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:background="#61CCE8FF"
+    >
+
+    <RelativeLayout
+        android:background="@drawable/welcome_email_bg"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:padding="40dp"
+        android:layout_margin="20dp"
+        android:layout_centerInParent="true"
+        android:orientation="vertical"
+        >
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:id="@+id/welcome_email_text1"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:textAlignment="center"
+            android:text="Hello   there ,"
+            android:textSize="30sp"
+            android:textColor="#0099ff"
+            android:textStyle="bold"
+
+            />
+
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:id="@+id/welcome_email_text2"
+            android:layout_below="@id/welcome_email_text1"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="15dp"
+            android:textAlignment="viewStart"
+            android:textColor="@color/black"
+            android:text="Hello   there ,"
+            android:textSize="17sp"
+            />
+      <Button
+          android:id="@+id/welcome_email_CHECKOUT"
+          android:layout_width="130dp"
+          android:layout_height="wrap_content"
+          android:background="@drawable/social_media_btn"
+          android:text="Check out"
+          android:elevation="20dp"
+          android:textStyle="bold"
+          android:textAlignment="center"
+          android:layout_marginTop="30dp"
+          android:layout_centerHorizontal="true"
+          android:layout_below="@id/welcome_email_text2"
+          />
+        <Button
+            android:id="@+id/welcome_email_CANCEL"
+            android:layout_width="130dp"
+            android:layout_height="wrap_content"
+            android:background="@drawable/social_media_btn"
+            android:text="cancel"
+            android:layout_marginBottom="10dp"
+            android:textColor="#0099ff"
+            android:elevation="20dp"
+            app:backgroundTint="@color/white"
+            android:textStyle="bold"
+            android:textAlignment="center"
+            android:layout_marginTop="18dp"
+            android:layout_centerHorizontal="true"
+            android:layout_below="@id/welcome_email_CHECKOUT"
+            />
+    </RelativeLayout>
+
+</RelativeLayout>

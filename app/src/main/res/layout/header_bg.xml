@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:gravity="bottom"
+    android:padding="20dp"
+    android:background="@drawable/card_bg_header"
+    android:orientation="vertical"
+
+    >
+
+    <ImageView
+        android:id="@+id/profile_logo_navigationBar"
+        android:layout_width="80dp"
+        android:layout_marginTop="30dp"
+        android:layout_marginEnd="10dp"
+        android:pointerIcon="vertical_double_arrow"
+        android:layout_height="80dp"
+        android:layout_alignParentEnd="true"
+        android:layout_marginStart="10dp"
+        android:background="@drawable/profile_bg_blue"
+        android:padding="5dp"
+        android:src="@drawable/ic_baseline_person_24"
+        android:contentDescription="profile image" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Hi ,yourName"
+        android:layout_below="@id/profile_logo_navigationBar"
+        android:layout_marginTop="10dp"
+        android:maxLines="1"
+        android:textSize="18sp"
+        android:textColor="@color/black"
+        android:id="@+id/profile_name_navigationBar"
+        />
+
+    <TextView
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:layout_alignStart="@id/profile_name_navigationBar"
+    android:text="Logged in as Email"
+    android:layout_marginTop="10dp"
+    android:layout_marginBottom="20dp"
+    android:maxLines="3"
+    android:textColor="@color/black"
+    android:id="@+id/profile_email_navigationBar"
+    android:layout_below="@id/profile_name_navigationBar"
+
+
+    />
+
+</RelativeLayout>

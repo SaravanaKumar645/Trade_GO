@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/user_product_display"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layout_below="@+id/your_products_section"
+    android:backgroundTint="#00C853"
+    tools:context=".activities.YourProducts">
+
+    <include
+        android:id="@+id/toolbar_product_section"
+
+        layout="@layout/toolbar" />
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/add_products"
+        android:layout_width="300dp"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/toolbar_product_section"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="15dp"
+        android:layout_marginBottom="10dp"
+        android:background="@drawable/btn_bg_blue"
+        android:elevation="5dp"
+        android:gravity="center"
+        android:padding="7dp"
+        android:text="Add Products"
+        android:textColor="#4964FB"
+        android:textSize="17sp"
+        android:textStyle="bold"
+        app:backgroundTint="#DACBE6FD"
+        app:icon="@drawable/ic_add_shopping_products_24"
+        app:iconGravity="textStart"
+        app:iconPadding="10dp"
+        app:iconTint="#4964FB" />
+
+    <RelativeLayout
+        android:id="@+id/no_image_relativelayout"
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:layout_below="@id/add_products"
+        android:layout_centerInParent="true"
+        android:gravity="center"
+        android:padding="10dp"
+        android:visibility="gone">
+
+        <ImageView
+            android:id="@+id/no_image_view"
+            android:layout_width="150dp"
+            android:layout_height="150dp"
+            android:layout_centerInParent="true"
+            android:visibility="gone" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/no_image_view"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="15dp"
+            android:layout_marginBottom="20dp"
+            android:text="No Products found. Add a few !"
+            android:textAlignment="center"
+            android:textColor="#DA7AC1FD"
+            android:textSize="18sp"
+            android:textStyle="bold" />
+    </RelativeLayout>
+
+    <com.facebook.shimmer.ShimmerFrameLayout
+        android:id="@+id/shimmer_effect_layout"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@id/add_products"
+        android:layout_centerInParent="true"
+        android:foregroundGravity="center"
+
+        >
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+            <include layout="@layout/shimmer_placeholder_layout" />
+
+            <include layout="@layout/shimmer_placeholder_layout" />
+
+            <include layout="@layout/shimmer_placeholder_layout" />
+
+            <include layout="@layout/shimmer_placeholder_layout" />
+
+
+        </LinearLayout>
+
+    </com.facebook.shimmer.ShimmerFrameLayout>
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/my_products_list"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@+id/add_products"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentBottom="true"
+        android:layout_margin="10dp"
+        android:clipToPadding="false"
+        tools:itemCount="5"
+        android:padding="4dp"
+        android:visibility="gone"
+        tools:listitem="@layout/your_products_adapter_view" />
+
+</RelativeLayout>

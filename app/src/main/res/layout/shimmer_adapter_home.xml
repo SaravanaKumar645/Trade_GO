@@ -1,0 +1,58 @@
+<com.google.android.material.card.MaterialCardView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_marginTop="40dp"
+    android:id="@+id/card_layout_home_shimmer"
+    android:layout_height="wrap_content"
+    android:layout_marginBottom="5dp"
+    android:padding="4dp">
+    <RelativeLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:padding="8dp"
+        android:elevation="10dp"
+        >
+
+        <ImageView
+            android:id="@+id/home_product_image_sh"
+            android:layout_width="320dp"
+            android:layout_height="150dp"
+            android:layout_centerHorizontal="true"
+            android:contentDescription="home_product_image"
+            android:background="#AEA6A6"
+            />
+        <TextView
+            android:id="@+id/home_product_name_sh"
+            android:layout_marginStart="10dp"
+            android:layout_below="@+id/home_product_image_sh"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="5dp"
+            android:textAlignment="center"
+            android:layout_width="200dp"
+            android:layout_height="17dp"
+            android:background="#AEA6A6"/>
+        <com.google.android.material.button.MaterialButton
+            android:layout_width="match_parent"
+            android:id="@+id/home_product_viewDetails_btn_sh"
+            android:backgroundTint="#AEA6A6"
+            android:fontFamily="sans-serif-black"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/home_product_name_sh"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="0dp"
+
+            />
+
+        <View
+
+            android:id="@+id/line_view"
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:layout_below="@id/home_product_viewDetails_btn_sh"
+            android:background="#AEA6A6"
+
+            />
+
+    </RelativeLayout>
+
+</com.google.android.material.card.MaterialCardView>
+
