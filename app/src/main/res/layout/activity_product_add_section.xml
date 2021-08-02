@@ -1,0 +1,201 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".activities.ProductAddSection">
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:id="@+id/layout_root"
+        android:layout_height="wrap_content">
+        <include layout="@layout/toolbar"
+
+            android:id="@+id/toolbar_add_product_area"
+            />
+
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+
+
+            app:layout_constraintTop_toBottomOf="@id/toolbar_add_product_area"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            >
+
+            <com.denzcoskun.imageslider.ImageSlider
+                android:id="@+id/image_Slider"
+                android:layout_width="300dp"
+                android:layout_height="240dp"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="20dp"
+                android:background="@drawable/no_image_icon"
+                app:iss_auto_cycle="true"
+                app:iss_corner_radius="10"
+                app:iss_delay="1000"
+                app:iss_error_image="@drawable/ic_baseline_broken_image_24"
+
+                app:iss_period="1000"
+                app:iss_placeholder="@drawable/no_image_icon" />
+            <Button
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:backgroundTint="#CBE6FD"
+                android:layout_below="@id/image_Slider"
+                android:text="Clear"
+                android:textColor="@color/black"
+                android:textAllCaps="false"
+                android:textSize="12sp"
+                android:textStyle="bold"
+                android:id="@+id/clear_imageSlider"
+                android:layout_marginTop="3dp"
+                android:layout_alignEnd="@id/image_Slider"
+                android:layout_marginEnd="10dp"
+                />
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/add_images_btn"
+                android:elevation="5dp"
+                android:layout_width="300dp"
+                app:backgroundTint="#CBE6FD"
+                android:textColor="#4964FB"
+                android:textSize="17sp"
+                android:textStyle="bold"
+                app:icon="@drawable/ic_add_photo_icon_24"
+                app:iconGravity="textStart"
+                app:iconTint="#4964FB"
+                android:gravity="center"
+                android:backgroundTint="#82B1FF"
+                android:background="@drawable/btn_bg_blue"
+                android:text="Select images"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/image_Slider"
+                android:layout_marginTop="70dp"
+                android:layout_centerHorizontal="true"
+                />
+            <EditText
+                android:inputType="text"
+                android:textIsSelectable="true"
+                android:id="@+id/add_p_name"
+                android:layout_width="300dp"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="20dp"
+                android:hint="Enter Product name"
+                android:autofillHints="Enter Product name"
+                android:textAlignment="textStart"
+                android:gravity="start"
+                android:background="@drawable/btn_bg_blue"
+                android:padding="12dp"
+                android:elevation="5dp"
+                android:ems="10"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/add_images_btn"
+                />
+            <com.skydoves.powerspinner.PowerSpinnerView
+                android:id="@+id/category_dropdownList"
+                android:layout_below="@+id/add_p_name"
+                android:layout_width="300dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:background="@drawable/btn_bg_blue"
+                android:backgroundTint="#41FF6D00"
+                android:textSize="17sp"
+                android:hint="Choose category"
+                android:gravity="center"
+                app:spinner_popup_height="200dp"
+                app:spinner_popup_width="300dp"
+                android:textStyle="bold"
+                android:textColor="@color/black"
+                app:spinner_arrow_animate_duration="200"
+                app:spinner_arrow_gravity="start"
+                android:layout_centerHorizontal="true"
+                app:spinner_divider_color="#536DFE"
+                app:spinner_divider_size="0.4dp"
+                android:padding="12dp"
+
+                android:textColorHint="#FF6D00"
+                app:spinner_divider_show="false"
+                app:spinner_popup_focusable="true"
+                app:spinner_popup_background="@color/white"
+                app:spinner_popup_animation="dropdown"
+
+                app:spinner_popup_elevation="14dp"
+                />
+            <EditText
+                android:id="@+id/add_p_price"
+                android:inputType="number"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="20dp"
+                android:hint="Enter price/unit"
+                android:textAlignment="textStart"
+                android:background="@drawable/btn_bg_blue"
+                android:padding="12dp"
+                android:elevation="5dp"
+                android:ems="10"
+                android:textIsSelectable="true"
+                android:layout_width="300dp"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/category_dropdownList"
+                android:autofillHints="Enter price/unit" />
+            <EditText
+                android:id="@+id/add_p_stock"
+                android:inputType="number"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="20dp"
+                android:hint="Enter available stock"
+                android:textAlignment="textStart"
+                android:background="@drawable/btn_bg_blue"
+                android:padding="12dp"
+                android:elevation="5dp"
+                android:ems="10"
+                android:textIsSelectable="true"
+                android:layout_width="300dp"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/add_p_price"
+                android:autofillHints="Enter available stock" />
+
+            <EditText
+
+                android:id="@+id/add_p_description"
+                android:overScrollMode="always"
+                android:scrollbarStyle="insideInset"
+                android:scrollbars="vertical"
+                android:layout_centerHorizontal="true"
+                android:textIsSelectable="true"
+                android:layout_marginTop="20dp"
+                android:maxLines="4"
+                android:hint="Add description of your product"
+                android:background="@drawable/product_btn_dotted"
+                android:inputType="textMultiLine"
+                android:maxHeight="200dp"
+                android:maxWidth="300dp"
+                android:autofillHints="Add description of your product"
+                android:padding="30dp"
+                android:elevation="5dp"
+                android:ems="10"
+                android:layout_marginBottom="20dp"
+                android:layout_width="300dp"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/add_p_stock"/>
+            <Button
+                android:id="@+id/add_product_submit"
+                android:layout_below="@id/add_p_description"
+                android:layout_centerHorizontal="true"
+                android:layout_width="300dp"
+                android:elevation="5dp"
+                app:backgroundTint="#CBE6FD"
+                android:textColor="#536DFE"
+                android:textSize="17sp"
+                android:textStyle="bold"
+                android:backgroundTint="#82B1FF"
+                android:background="@drawable/btn_bg_blue"
+                android:text="Submit"
+                android:layout_marginBottom="30dp"
+                android:layout_height="wrap_content"
+
+                />
+        </RelativeLayout>
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</ScrollView>

@@ -1,0 +1,2 @@
+rootProject.name = "Trade Go"
+include ':app'

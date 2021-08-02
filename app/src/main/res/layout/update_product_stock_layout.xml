@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="#D5FBDDC7"
+    android:orientation="vertical"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+
+    >
+    <TextView
+        android:layout_width="300dp"
+        android:layout_height="wrap_content"
+        android:id="@+id/update_stock_title"
+        android:layout_centerHorizontal="true"
+        android:text="UPDATE STOCK"
+        android:textColor="#F8FF7309"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        android:gravity="center"
+        android:layout_marginTop="20dp"
+        />
+    <TextView
+        android:layout_width="300dp"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:id="@+id/textView_stockUpdate"
+        android:textSize="16sp"
+        android:layout_below="@+id/update_stock_title"
+
+        android:layout_marginTop="20dp"
+        android:textColor="@color/black"
+        android:layout_centerHorizontal="true"
+        android:text="Please enter the current total stock .
+         Do not enter the updated stock !"
+        />
+   <EditText
+       android:layout_width="300dp"
+       android:layout_height="wrap_content"
+       android:id="@+id/update_stock_edittext"
+       android:layout_below="@id/textView_stockUpdate"
+       android:layout_centerHorizontal="true"
+       android:layout_marginTop="40dp"
+       android:inputType="number"
+       android:padding="12dp"
+       android:textColor="@color/black"
+       android:background="@drawable/stock_update_editext_bg"
+       android:hint="Enter current total stock"
+       android:autofillHints="Enter current stock" />
+    <Button
+        android:layout_width="200dp"
+        android:layout_height="wrap_content"
+        android:text="Submit"
+        app:backgroundTint="#F8FF9F57"
+        android:background="@drawable/social_media_btn"
+        android:id="@+id/update_stock_submit_btn"
+        android:layout_below="@+id/update_stock_edittext"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="30dp"
+        android:layout_marginBottom="40dp"
+        />
+
+</RelativeLayout>
