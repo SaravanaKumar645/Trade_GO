@@ -1,12 +1,10 @@
 package com.example.tradego.activities
 
+import android.app.AlertDialog
 import android.app.PendingIntent
 import android.content.Context
 import android.content.Intent
 import android.content.SharedPreferences
-import android.graphics.Bitmap
-import android.graphics.BitmapFactory
-import android.net.Uri
 import android.os.Build
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
@@ -15,6 +13,7 @@ import android.text.SpannableString
 import android.text.style.BulletSpan
 import android.util.Log
 import android.view.MenuItem
+import android.view.View
 import android.widget.RemoteViews
 import androidx.annotation.RequiresApi
 import androidx.core.app.NotificationCompat
@@ -23,23 +22,23 @@ import com.denzcoskun.imageslider.constants.ScaleTypes
 import com.denzcoskun.imageslider.models.SlideModel
 import com.example.tradego.R
 import com.example.tradego.models.AddToCartResponse
+import com.example.tradego.models.BuyProductSendOTPResponse
 import com.example.tradego.retrofit.RetrofitClient
 import com.example.tradego.retrofit.snackbar
+
 import kotlinx.android.synthetic.main.activity_single_product_view_page.*
-import kotlinx.android.synthetic.main.activity_user_cart.*
-import kotlinx.android.synthetic.main.notification_added_to_cart.*
-import kotlinx.android.synthetic.main.notification_added_to_cart.view.*
+import kotlinx.android.synthetic.main.buy_product_alert_dialog.view.*
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
-import java.io.IOException
-import java.net.URL
+import kotlin.math.log
 
 class SingleProductViewPage : AppCompatActivity() {
 
     private val CHANNEL_ID="ProductAddedToCart"
     private lateinit var notifyManager:NotificationManagerCompat
     private val sharedPref = "Auth_check"
+
     private lateinit var sharedStorage: SharedPreferences
     private lateinit var editor: SharedPreferences.Editor
     private val imageList=ArrayList<SlideModel>()
@@ -52,7 +51,9 @@ class SingleProductViewPage : AppCompatActivity() {
         supportActionBar!!.setDisplayHomeAsUpEnabled(true)
         notifyManager= NotificationManagerCompat.from(this@SingleProductViewPage)
         imageList.clear()
-        val id=intent.getStringExtra("p_id")!!
+        val sh:SharedPreferences=this.getSharedPreferences(sharedPref, Context.MODE_PRIVATE)
+        val uid=sh.getString("Uid",null)!!
+        val pid=intent.getStringExtra("p_id")!!
         val name=intent.getStringExtra("p_name")!!
         val price=intent.getStringExtra("p_price")
         val stock=intent.getStringExtra("p_stock")
@@ -81,10 +82,93 @@ class SingleProductViewPage : AppCompatActivity() {
 
         single_product_addCart_btn.setOnClickListener{
             singleProduct_view_relativeLayout.snackbar("Adding to cart...")
-            addtoCart(id,name,url1)
+            addtoCart(pid,name,url1)
+        }
+        single_product_buyNow_btn.setOnClickListener{
+             val qty=ArrayList<String>()
+            if (stock != null) {
+                val pCount=stock.toInt()
+                Log.e("", "PCount :$pCount", )
+                for(i in 1 until pCount){
+                    if(i>5){
+                        break
+                    }
+                    qty.add(i.toString())
+                }
+                    selectQuantityPage(name, "Rs.$price",pid,pCount,qty,uid)
+            }
         }
 
+    }
 
+    private fun selectQuantityPage(
+        name: String,
+        price: String?,
+        pid: String,
+        stock: Int,
+        qty1: ArrayList<String>,
+        uid: String
+    ) {
+        val alertDialog = AlertDialog.Builder(this, R.style.customAlertDialog)
+        val customView = View.inflate(this, R.layout.buy_product_alert_dialog, null)
+        alertDialog.setView(customView)
+        alertDialog.setCancelable(true)
+        val dialog = alertDialog.create()
+        customView.buyProduct_name_text1.text=name
+        customView.buyProduct_price_text2.text=price
+        customView.buyProduct_quantity_dropdownList.setItems(qty1)
+        customView.buyProduct_quantity_dropdownList.arrowAnimate=true
+        customView.buyProduct_quantity_dropdownList.lifecycleOwner=this
+        customView.buyProduct_CANCEL_btn.setOnClickListener {
+            dialog.dismiss()
+        }
+        customView.buyProduct_BUY_btn.setOnClickListener {
+            val qtyIndex=customView.buyProduct_quantity_dropdownList.selectedIndex
+            val range=0..qty1.size
+            dialog.dismiss()
+            when{
+                (range.contains(qtyIndex))->{
+                    val qtySelected= qty1[qtyIndex].toInt()
+                    val call:Call<BuyProductSendOTPResponse> =RetrofitClient.getInstance().sendOTP(pid,uid)
+                    call.enqueue(object :Callback<BuyProductSendOTPResponse>{
+                        override fun onResponse(call: Call<BuyProductSendOTPResponse>, response: Response<BuyProductSendOTPResponse>) {
+                            when{
+
+                                response.code()==200||response.isSuccessful->{
+                                    val curStock=(qtySelected-stock)
+                                    val res=response.body()!!
+                                    val intent = Intent(applicationContext, BuyProduct_VerifyPage::class.java)
+                                    intent.putExtra("p_id",pid)
+                                    intent.putExtra("Current Stock",curStock.toString())
+                                    intent.putExtra("Phone", (res.phoneNumber))
+                                    intent.flags = Intent.FLAG_ACTIVITY_NEW_TASK
+                                    startActivity(intent)
+
+                                }
+                                response.code()==408->{
+                                    singleProduct_view_relativeLayout.snackbar("Unexpected Error ! Try Again.")
+                                }
+                                response.code()==405->{
+                                    singleProduct_view_relativeLayout.snackbar("Error getting product details ! Try again.")
+                                }
+                                response.code()==420->{
+                                    singleProduct_view_relativeLayout.snackbar("Error getting user details ! Login again.")
+                                }
+                            }
+                        }
+
+                        override fun onFailure(call: Call<BuyProductSendOTPResponse>, t: Throwable) {
+                            singleProduct_view_relativeLayout.snackbar("Error occurred ! ${t.message}")
+                        }
+                    })
+                }
+                else->{
+                    singleProduct_view_relativeLayout.snackbar("Select Quantity !")
+                    return@setOnClickListener
+                }
+            }
+        }
+        dialog.show()
     }
 
 

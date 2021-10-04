@@ -24,6 +24,7 @@ class Login : AppCompatActivity() {
     private val sharedPref="Auth_check"
     private lateinit var sharedStorage:SharedPreferences
     private  lateinit var editor:SharedPreferences.Editor
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_login)

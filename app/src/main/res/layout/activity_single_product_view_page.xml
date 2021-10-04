@@ -17,9 +17,9 @@
     <ScrollView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_above="@id/grid_buttons_RelativeLayout"
+        android:id="@+id/singleProduct_scrollView"
         android:layout_below="@id/toolbar_singleProduct_view"
-        android:layout_above="@id/grid_buttons"
-
         android:layout_centerHorizontal="true">
 
         <RelativeLayout
@@ -131,51 +131,58 @@
 
     </ScrollView>
 
-
-    <GridLayout
-        android:id="@+id/grid_buttons"
-        app:elevation="20dp"
+    <RelativeLayout
+        android:id="@+id/grid_buttons_RelativeLayout"
         android:layout_width="match_parent"
-        android:layout_height="65dp"
+        android:layout_height="wrap_content"
         android:layout_alignParentStart="true"
         android:layout_alignParentEnd="true"
-        android:layout_alignParentBottom="true"
-        android:alignmentMode="alignMargins"
-        android:columnCount="2"
-        android:columnOrderPreserved="true"
-        android:rowCount="1">
+        android:layout_alignParentBottom="true">
 
-        <TextView
-            android:layout_width="100dp"
-            android:id="@+id/single_product_addCart_btn"
-            android:layout_height="wrap_content"
-            android:layout_rowWeight="1"
-            android:textAlignment="center"
-            android:gravity="center"
-            android:textSize="16sp"
-            android:clickable="true"
-            android:layout_columnWeight="1"
-            android:background="#3CD3C9C9"
-            android:text="Add to Cart"
-            android:textColor="#0099ff"
-            android:textStyle="bold"
+        <GridLayout
+            android:id="@+id/grid_buttons"
+            android:layout_width="match_parent"
+            android:layout_centerInParent="true"
+            android:layout_height="65dp"
+            android:alignmentMode="alignMargins"
+            android:columnCount="2"
+            android:columnOrderPreserved="true"
+            android:rowCount="1"
+            app:elevation="20dp"
+            tools:ignore="UselessParent">
 
-            android:focusable="true" />
+            <TextView
+                android:id="@+id/single_product_addCart_btn"
+                android:layout_width="100dp"
+                android:layout_height="wrap_content"
+                android:layout_rowWeight="1"
+                android:layout_columnWeight="1"
+                android:background="#3CD3C9C9"
+                android:clickable="true"
+                android:focusable="true"
+                android:gravity="center"
+                android:text="Add to Cart"
+                android:textAlignment="center"
+                android:textColor="#FF6D00"
+                android:textSize="16sp"
+                android:textStyle="bold" />
 
-        <TextView
-            android:layout_width="100dp"
-            android:id="@+id/single_product_buyNow_btn"
-            android:textAlignment="center"
-            android:gravity="center"
-            android:textSize="16sp"
-            android:background="#0099ff"
-            android:layout_height="wrap_content"
-            android:layout_rowWeight="1"
-            android:clickable="true"
-            android:focusable="true"
-            android:layout_columnWeight="1"
-            android:text="Buy Now"
-            android:textColor="@color/white"
-            android:textStyle="bold" />
-    </GridLayout>
+            <TextView
+                android:id="@+id/single_product_buyNow_btn"
+                android:layout_width="100dp"
+                android:layout_height="wrap_content"
+                android:layout_rowWeight="1"
+                android:layout_columnWeight="1"
+                android:background="#FF6D00"
+                android:clickable="true"
+                android:focusable="true"
+                android:gravity="center"
+                android:text="Buy Now"
+                android:textAlignment="center"
+                android:textColor="@color/white"
+                android:textSize="16sp"
+                android:textStyle="bold" />
+        </GridLayout>
+    </RelativeLayout>
+
 </RelativeLayout>

@@ -32,6 +32,7 @@ class HomeProductsAdapter(val c: Context,private val allProductList:List<HomeAda
     override fun onBindViewHolder(holder: HomeProductViewHolder, position: Int) {
         val currentProduct=allProductList[position]
         val v=holder.itemView
+
         Picasso.get()
             .load(currentProduct.url1)
             .error(R.drawable.no_image_icon)

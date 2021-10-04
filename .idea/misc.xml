@@ -3,6 +3,19 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/ANDROID/Trade_GO/app/src/main/res/drawable/alertdialog_bg.xml" value="0.26614583333333336" />
+        <entry key="..\:/ANDROID/Trade_GO/app/src/main/res/drawable/buyproduct_verifypage_bg.xml" value="0.26614583333333336" />
+        <entry key="..\:/ANDROID/Trade_GO/app/src/main/res/layout/activity_buy_product_confirm_page.xml" value="0.25" />
+        <entry key="..\:/ANDROID/Trade_GO/app/src/main/res/layout/activity_buy_product_verify_page.xml" value="0.25" />
+        <entry key="..\:/ANDROID/Trade_GO/app/src/main/res/layout/activity_home.xml" value="0.25" />
+        <entry key="..\:/ANDROID/Trade_GO/app/src/main/res/layout/activity_login.xml" value="0.25" />
+        <entry key="..\:/ANDROID/Trade_GO/app/src/main/res/layout/activity_product_add_section.xml" value="0.25" />
+        <entry key="..\:/ANDROID/Trade_GO/app/src/main/res/layout/activity_single_product_view_page.xml" value="0.25" />
+        <entry key="..\:/ANDROID/Trade_GO/app/src/main/res/layout/activity_your_products.xml" value="0.25" />
+        <entry key="..\:/ANDROID/Trade_GO/app/src/main/res/layout/buy_product_alert_dialog.xml" value="0.25" />
+        <entry key="..\:/ANDROID/Trade_GO/app/src/main/res/layout/home_product_adapter_view.xml" value="0.25" />
+        <entry key="..\:/ANDROID/Trade_GO/app/src/main/res/layout/toolbar.xml" value="0.25" />
+        <entry key="..\:/ANDROID/Trade_GO/app/src/main/res/layout/welcome_email_notify.xml" value="0.25" />
         <entry key="..\:/Users/SARAV/Desktop/TradeGo/app/src/main/res/drawable-v24/card_bg_cart_sheet.xml" value="0.26614583333333336" />
         <entry key="..\:/Users/SARAV/Desktop/TradeGo/app/src/main/res/drawable/auth_bg.xml" value="0.26614583333333336" />
         <entry key="..\:/Users/SARAV/Desktop/TradeGo/app/src/main/res/drawable/card_bg_1.xml" value="0.26614583333333336" />
@@ -28,5 +41,5 @@
       </map>
     </option>
   </component>
-  <component name="ProjectRootManager" version="2" languageLevel="JDK_15_PREVIEW" project-jdk-name="11" project-jdk-type="JavaSDK" />
+  <component name="ProjectRootManager" version="2" languageLevel="JDK_15" project-jdk-name="11" project-jdk-type="JavaSDK" />
 </project>

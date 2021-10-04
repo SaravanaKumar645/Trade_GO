@@ -20,9 +20,8 @@
             android:layout_width="wrap_content"
             android:layout_height="150dp"
             android:layout_centerHorizontal="true"
-            android:contentDescription="home_product_image"
             android:background="@drawable/no_image_icon"
-            />
+            android:contentDescription="home_product_image" />
         <TextView
             android:id="@+id/home_product_name"
             android:layout_marginStart="10dp"

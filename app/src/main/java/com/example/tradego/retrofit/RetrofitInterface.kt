@@ -100,6 +100,24 @@ interface RetrofitInterface {
     fun deleteCartProduct(
         @Field("p_id") id:String
     ):Call<DeleteCartProductsResponse>
+
+    @FormUrlEncoded
+    @POST("/product-buy-sendOTP")
+    fun sendOTP(
+        @Field("p_id") pid:String,
+        @Field("uid") uid:String
+    ):Call<BuyProductSendOTPResponse>
+
+    @FormUrlEncoded
+    @POST("/product-buy-verifyOTP")
+    fun verifyOTP(
+        @Field("p_id") pid:String,
+        @Field("phone") phone:String,
+        @Field("currentStock") curStock:String,
+        @Field("otpCode") code:String,
+        @Field("uid") uid: String
+    ):Call<BuyProductVerifyOTPResponse>
+
     //for demo purpose only
     @Multipart
     @POST("/upload")
