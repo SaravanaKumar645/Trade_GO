@@ -4,6 +4,7 @@ import android.content.Context
 import android.content.SharedPreferences
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.util.Log
 import android.view.MenuItem
 import com.example.tradego.R
 import com.example.tradego.models.BuyProductVerifyOTPResponse
@@ -26,29 +27,36 @@ class BuyProduct_VerifyPage : AppCompatActivity() {
         val phone=intent.getStringExtra("Phone")!!
         val curStock=intent.getStringExtra("Current Stock")!!
         val pid=intent.getStringExtra("p_id")!!
-        val code=productBuy_edittext.text.toString().trim()
+
 
 
         productBuy_submit_btn.setOnClickListener{
-         val call: Call<BuyProductVerifyOTPResponse> = RetrofitClient.getInstance().verifyOTP(pid, phone, curStock, code,uid)
-            call.enqueue(object :Callback<BuyProductVerifyOTPResponse> {
-                override fun onResponse(call: Call<BuyProductVerifyOTPResponse>, response: Response<BuyProductVerifyOTPResponse>) {
-                    when{
-                        response.code()==200||response.isSuccessful ->{
-                            verify_otp_RelativeLayout_Main.snackbar("Product ordered Successfully")
-                        }
-                        response.code()==408->{
+            val code=productBuy_edittextVP.text.toString().trim()
+            Log.e("Verify code", "My code:${code} ", )
+            if (code.isNotEmpty()){
+                val call: Call<BuyProductVerifyOTPResponse> = RetrofitClient.getInstance().verifyOTP(pid, phone, curStock, code,uid)
+                call.enqueue(object :Callback<BuyProductVerifyOTPResponse> {
+                    override fun onResponse(call: Call<BuyProductVerifyOTPResponse>, response: Response<BuyProductVerifyOTPResponse>) {
+                        when{
+                            response.code()==200||response.isSuccessful ->{
+                                verify_otp_RelativeLayout_Main.snackbar("Product ordered Successfully")
+                            }
+                            response.code()==408->{
+                                verify_otp_RelativeLayout_Main.snackbar("Product not ordered . Try Again !")
+                            }else->{
                             verify_otp_RelativeLayout_Main.snackbar("Product not ordered . Try Again !")
-                        }else->{
-                        verify_otp_RelativeLayout_Main.snackbar("Product not ordered . Try Again !")
+                        }
                         }
                     }
-                }
 
-                override fun onFailure(call: Call<BuyProductVerifyOTPResponse>, t: Throwable) {
-                    verify_otp_RelativeLayout_Main.snackbar("Product not ordered . Try Again !")
-                }
-            })
+                    override fun onFailure(call: Call<BuyProductVerifyOTPResponse>, t: Throwable) {
+                        verify_otp_RelativeLayout_Main.snackbar("Product not ordered . Try Again !")
+                    }
+                })
+            }else{
+                verify_otp_RelativeLayout_Main.snackbar("Code not Valid !")
+            }
+
         }
     }
     override fun onOptionsItemSelected(item: MenuItem): Boolean {

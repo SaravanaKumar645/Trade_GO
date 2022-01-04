@@ -19,7 +19,7 @@ object RetrofitClient {
     fun getInstance(): RetrofitInterface {
         if(instance==null){
             instance=Retrofit.Builder()
-                .baseUrl("https://trade-go.herokuapp.com")
+                .baseUrl("https://tradego-android-server.herokuapp.com")
                 .addConverterFactory(GsonConverterFactory.create())
                 .addCallAdapterFactory(RxJava2CallAdapterFactory.create())
                 .client(okhttp_client)
@@ -30,3 +30,4 @@ object RetrofitClient {
     }
 
 }
+//https://trade-go.herokuapp.com

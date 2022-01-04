@@ -38,12 +38,13 @@
             android:textStyle="bold" />
 
         <EditText
-            android:id="@+id/productBuy_edittext"
+            android:id="@+id/productBuy_edittextVP"
             android:layout_width="230dp"
             android:layout_height="wrap_content"
             android:layout_below="@id/verify_otp_textview"
             android:layout_centerHorizontal="true"
             android:layout_marginTop="30dp"
+            android:inputType="number"
             android:layout_marginBottom="20dp"
             android:drawableStart="@drawable/ic_baseline_lock_24"
             android:drawablePadding="12dp"
@@ -53,7 +54,7 @@
             android:id="@+id/productBuy_submit_btn"
             android:layout_width="150dp"
             android:layout_height="wrap_content"
-            android:layout_below="@id/productBuy_edittext"
+            android:layout_below="@id/productBuy_edittextVP"
             android:layout_centerHorizontal="true"
             android:background="@drawable/social_media_btn"
             android:text="submit"

@@ -195,12 +195,13 @@ class SingleProductViewPage : AppCompatActivity() {
                     (response.code()==200 ||response.isSuccessful)->{
                         val res= response.body()!!
                         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
+                            Log.e("", "sendNotification:${res.msg} ", )
                             sendNotification(name, res.msg, url1)
                         }else{
-                            Log.e("", "sendNotification: ", )
+                            Log.e("", "sendNotification: ${res.msg}", )
                             singleProduct_view_relativeLayout.snackbar(res.msg)
                         }
-
+                        singleProduct_view_relativeLayout.snackbar("Item added to cart !")
                     }
                     response.code()==405->{
                        singleProduct_view_relativeLayout.snackbar("Cannot add to cart .Try again !")
@@ -234,6 +235,7 @@ class SingleProductViewPage : AppCompatActivity() {
     }
     @RequiresApi(Build.VERSION_CODES.O)
     fun sendNotification(title: String, msg: String, url1: String) {
+        Log.e("", "Inside Send Notification Method: ", )
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
             val intent=Intent(this,UserCart::class.java)
             intent.flags = Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK
